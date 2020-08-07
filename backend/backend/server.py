@@ -3,11 +3,12 @@ from dotenv import load_dotenv
 from src.controllers.classes_controller import Classes
 from src.controllers.connections_controller import ConnectionsController
 import os
-
+from flask_cors import CORS
 
 load_dotenv()
 
 app = Flask(__name__)
+CORS(app)
 
 classes = Classes()
 connections = ConnectionsController()

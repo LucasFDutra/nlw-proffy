@@ -8,7 +8,12 @@ import psycopg2.extras
 class Classes():
     def index(self, request):
         try:
-            week_day, subject, time = dict(request.args).values()
+            query_params = dict(request.args)
+            print(query_params)
+            week_day = query_params['week_day']
+            subject = query_params['subject']
+            time = query_params['time']
+
             time = convert(time)
 
             connection = create_db_connection()
