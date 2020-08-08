@@ -1,8 +1,9 @@
-Dessa vez fiz apenas o backend da aplicação. mas decidi fazer diferente e fiz ele inteiramente em python
-O banco de dados que utilizei foi o postgres.
+Dessa vez fiz apenas o backend da aplicação, mas decidi fazer diferente e fiz ele inteiramente em python.
+
+E o banco de dados que utilizei foi o postgres.
 
 ---
-# PARA USAR
+# PARA USAR 🤔
 Recomendo utilizar o poetry para trabalhar com seus projetos python, então corre lá e instala ele [por aqui](https://python-poetry.org/)
 
 Tendo o poetry instalado, entre na pasta backend pelo terminal e crie uma virtualenv para não bagunçar suas libs no pc, basta digitar o comando:
@@ -39,7 +40,7 @@ $ poetry run dev
 e pronto, sua aplicação estará rodando na porta 5000
 
 ---
-# ATENÇÃO
+# ATENÇÃO 🧐
 
 Os comandos de migrations e run dev foram instanciados dentro do arquivo `pyproject.toml` nas linhas
 
@@ -54,12 +55,12 @@ mas o código que realmente está rodando por baixo desses comandos está no arq
 
 
 ---
-# VARIÁVEIS DE AMBIENTE
+# VARIÁVEIS DE AMBIENTE 
 Os parâmetros de conexão com o banco estão todos em um arquivo .env, que não está nesse repositório, mas aqui vai ter um arquivo .env_ex que você pode mudar o nome para .env e colocar suas credências
 
 
 ---
-# INSTALANDO O POSTGRES
+# INSTALANDO O POSTGRES 🐘
 Eu recomendo usar o banco via docker. Acho mais simples de instalar, mas caso queira instalar na sua máquina "de verdade" então siga a documentação [aqui](https://www.postgresql.org/)
 mas se quer ir pelo docker, então primeiro instale o docker:
 
@@ -75,7 +76,13 @@ $ su $USER
 Agora basta instalar a imagem do postgres com o comando:
 
 ```shell
-$ docker run -p 5432:5432  --name postgres-database -e POSTGRES_PASSWORD=1234 -d postgres
+$ docker run -d \
+	-p 5432:5432 \
+    --name postgres-db \
+    -e POSTGRES_PASSWORD=1234 \
+    -e PGDATA=/var/lib/postgresql/data/pgdata \
+    -v ~/.pgdata:/var/lib/postgresql/data \
+    postgres
 ```
 
 > Dica: utilize a extensão do [docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) para vscode, que ela ajuda bastante para gerenciar seus containers. E também para visualizar seu banco eu recomendo o [postbird](https://snapcraft.io/postbird)
@@ -89,4 +96,4 @@ Abra o arquivo `Insomnia_2020-08-07.json` no seu insomnia, e veja as rotas, e co
 - list connections: mostra quantas conexões foram feitas até agora
 
 ---
-Bom aproveito, espero que consiga aprender algo novo com essa api escrita em python!!
+Bom aproveito, espero que consiga aprender algo novo com essa api escrita em python!! 📚
